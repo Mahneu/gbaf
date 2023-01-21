@@ -1,0 +1,94 @@
+@media only screen 
+and (min-width: 768px) 
+and (max-width: 1024px)  {
+    
+	/* ------------------------------ Global ------------------------------*/
+	:root {
+		--gutter_text: 60px;
+	}
+
+	/* ----------------------- HEADER */
+
+	/* Profil*/
+	/*  bouton modifier son profil*/
+	.header-profil > li:last-child {
+		opacity: 1;
+    }
+    .header-profil li a:hover {
+        color: transparent;
+    }
+
+	/* ----------------------- MAIN & textes */
+
+	.text {
+		margin-right: var(--gutter_text);
+		margin-left: var(--gutter_text);
+	}
+
+	/* ------------------------------ Accueil Connecté------------------------------*/
+	/* Section Présentation GBAF */
+	.GBAF-illustration {
+		height: 300px;
+	}
+	/* Article Liste des acteurs + navigation */
+	.acteur_seul {
+		display: grid;
+		grid-template-columns: 240px 2fr 150px;
+		grid-template-rows: 1fr 2em 1fr;
+		grid-template-areas:
+			"logo nom nom"
+			"logo infos infos"
+			"logo . button";
+	}
+	.partenaire > a {
+		margin-left: var(--gutter_text);
+		margin-bottom: 1em;
+    }
+    
+    @media only screen 
+    and (max-width: 787px) {
+        /* Article Liste des acteurs + navigation */
+        .acteur_seul {
+            height: auto;
+        }
+        .acteur_seul {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: stretch;
+            padding: 1em;
+        }
+        /* Logos / Nom / Description Acteurs */
+        .acteur_seul > img,
+        .acteur_seul > h3,
+        .acteur_seul > div {
+            margin-bottom: 1em;
+        }
+        /* Nom Acteurs */
+        .acteur_seul > h3 {
+            align-self: flex-start;
+        }
+        /* première ligne description acteur */
+        .acteur-seul_description > p:first-of-type {
+            overflow: visible;
+            white-space: normal;
+        }
+        /* bouton "Lire la suite" */
+        .acteur_seul :nth-child(4) {
+            margin: 0;
+            align-self: flex-end;
+        }
+    }
+	/* ------------------------------ Partenaire / Connecté------------------------------*/
+
+	/* ------------------------------ Index / Inscription / Modifier son Profil / MP ------------------------------*/
+
+	/* Section */
+	.form_container {
+		max-width: 500px;
+	}
+	.form_container fieldset {
+		border: none;
+		font-size: 0.9em;
+	}
+}

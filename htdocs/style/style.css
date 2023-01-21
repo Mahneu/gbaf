@@ -1,0 +1,705 @@
+/* CSS Global */
+:root {
+	--header_height: 106px;
+	--header_logo_size: 80px;
+	--space_section: 80px;
+	--space_article: 30px;
+	--gutter_text: 80px;
+	--min_width: 500px;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    /*
+	1. Corrigez la hauteur de ligne dans tous les navigateurs.
+    2. Empêchez les ajustements de la taille de la police après les changements d'orientation dans iOS.
+    */
+    html {
+    line-height: 1.15; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    }
+    main {
+        display: block;
+    }
+
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 1 */
+    line-height: 1.15; /* 1 */
+    margin: 0; /* 2 */
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+body,
+a{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	list-style: none;
+    box-sizing: border-box;
+    border:none;
+    outline: none;
+	font-family: "Roboto", sans-serif;
+	color: black;
+}
+
+img {
+	max-width: 100%;
+}
+
+h1 {
+	font-size: 3em;
+	margin-top: 0;
+	hyphens: auto;
+}
+h2 {
+	font-size: 2em;
+	margin-top: 0;
+	hyphens: auto;
+}
+h3 {
+	font-size: 1.3em;
+	margin-top: 0;
+}
+h4 {
+	font-size: 1em;
+    margin: 0;
+    font-weight: normal;
+}
+p,
+textarea,
+text,
+input {
+	margin: 0;
+	font-size: 1em;
+	hyphens: auto;
+
+}
+input:focus{outline:none;}
+
+.contain_all {
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-rows: var(--header_height) auto 3em;
+    grid-template-areas: 
+        ". header ."
+        ". main ."
+        "footer footer footer";
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+}
+
+/* HEADER */
+
+header {
+    top: 0;
+    grid-area:header;
+	display:flex;
+    justify-content: space-between;
+    z-index: 2;
+    width: 100%;
+	background-color: rgb(100, 100, 100);
+}
+@media only screen  
+and (min-width: 1025px)  {
+    header{
+        position:fixed;
+    }
+
+}
+
+/* Logo GBAF */
+.header-logo {
+	min-width: var(--header_logo_size);
+    max-width: var(--header_logo_size);
+	margin-top: 1em;
+	margin-left: 1em;
+}
+/* Profil*/
+.header-profil {
+    position: relative;
+    align-self: center;
+    text-align: right;
+    margin: 1em;
+	padding: 0;
+}
+
+/* Icone profil */
+.profil_nom::before {
+	content: "";
+	display: inline-block;
+	vertical-align: sub;
+	width: 1.8em;
+	margin: 0;
+	background: url(/images/profil.png) center/contain no-repeat;
+}
+
+/* Nom Prénom */
+.profil_nom {
+	display: flex;
+	cursor: pointer;
+	line-height: 1.8em;
+}
+.profil_nom > p {
+	margin-left: 0.5em;
+}
+.header-profil li {
+	list-style: none;
+}
+/* bouton Déco & Modifier le profil */
+.header-profil li > a {
+	display: block;
+	list-style: none;
+	font-size: 0.8em;
+	font-weight: 300;
+	line-height: 1.5em;
+	text-align: right;
+	color: rgba(0, 0, 0, 0.8);
+}
+.header-profil li a:hover {
+	color: red;
+}
+/*  bouton modifier son profil*/
+.header-profil > li:last-child {
+	position: absolute;
+	top: 3em;
+	right: 0;
+	opacity: 0;
+	width: max-content;
+}
+.header-profil:hover li:last-child {
+	opacity: 1;
+	transition: 0.5s ease;
+}
+
+/*  FOOTER */
+footer {
+    grid-area: footer;
+    width: 100%;
+	background-color: rgb(100, 100, 100);
+    z-index: 3;
+}
+footer p {
+	font-weight: 100;
+	font-size: 15px;
+	color: white;
+	text-align: center;
+	line-height: 3em;
+}
+
+/*  MAIN / SECTIONS / ARTICLES */
+main {
+    width: 100%;
+    grid-area:main;
+ 	min-width: var(--min_width);
+}
+
+section {
+	width: 100%;
+ 	margin-top: var(--space_section);
+}
+
+article {
+ 	margin-top: var(--space_article);
+}
+
+/* Accueil / Co */
+
+/* Image Collab */
+.GBAF-illustration {
+ 	margin-top: 50px;
+	position: relative;
+	width: 100%;
+	height: 800px;
+	background: url(/images/collab.png) center / cover no-repeat;
+}
+
+/* Section Présentation partenaires / Partenaires */
+.partenaire:before {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 0.2em;
+	background-color: rgba(0, 0, 0, 0.1);
+ 	margin-bottom: var(--space_section);
+}
+/* Article Liste des partenaires + navigation */
+.partenaire_list {
+    margin-top: var(--space_article);
+	background-color: rgba(200, 200, 200, 0.8);
+ 	padding: 1.2em;
+	box-shadow: inset 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
+	border-radius: 2em;
+
+}
+.partenaire_list ul {
+	margin: 0;
+	padding: 0;
+}
+.partenaire_seul {
+	display: grid;
+	grid-template-columns: 370px 2fr 150px;
+	grid-template-rows: 1fr 2em 1fr;
+	grid-template-areas:
+		"logo nom nom"
+		"logo infos ."
+		"logo infosSpan button";
+	column-gap: 20px;
+	align-items: center;
+	height: 180px;
+	padding: 0.5em;
+ 	margin-bottom: 1.25em;
+	background-color: white;
+	box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.12);
+	box-sizing: content-box;
+	border-radius: 2em;
+}
+/* Logos partenaires */
+.partenaire_seul > img {
+	height: auto;
+	grid-area: logo;
+}
+/* Nom partenaires */
+.partenaire_seul > h3 {
+	grid-area: nom;
+	align-self: end;
+	margin: 0;
+}
+/* Description partenaires */
+.partenaire_description {
+	max-width: 100%;
+	grid-area: infos;
+	overflow: hidden;
+}
+/* Description partenaires première ligne */
+.partenaire_description > p:first-of-type {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.partenaire_description > ul,
+.partenaire_description > p ~ p {
+	display: none;
+}
+/* bouton "Lire la suite" */
+.partenaire_seul > a {
+    grid-area: button;
+    display: block;
+	justify-self: end;
+	align-self: end;
+	border: 0.1em solid rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+ 	padding: 0.5em;
+	margin: 0.5em;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.partenaire_seul > a:hover {
+	background-color: black;
+	color: white;
+	box-shadow: none;
+}
+.partenaire_seul > a:active {
+	background-color: black;
+	color: white;
+}
+
+/* Liste partenaires adaptatif */
+@media only screen 
+and (max-width: 1025px) {
+	/* Article Liste des partenaires + navigation */
+	.partenaire_seul {
+		height: auto;
+	}
+	.partenaire_seul {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: stretch;
+ 		padding: 1em;
+	}
+	/* Logos / Nom / Description partenaires */
+	.partenaire_seul > img,
+	.partenaire_seul > h3,
+	.partenaire_seul > div {
+        display: block;
+ 		margin-bottom: 1em;
+	}
+	/* Nom partenaires */
+	.partenaire_seul > h3 {
+		align-self: flex-start;
+	}
+	/* première ligne description partenaire */
+	.partenaire_description > p:first-of-type {
+		overflow: visible;
+		white-space: normal;
+	}
+	/* bouton "Lire la suite" */
+	.acteur_seul :nth-child(4) {
+		margin: 0;
+		align-self: flex-end;
+	}
+}
+
+/*  Partenaire / Connecté */
+
+/* Section infos du partenaire */
+/* Logo du partenaire */
+.partenaire > img {
+	width: 30em;
+	display: block;
+	margin: auto;
+ 	margin-bottom: var(--space_section);
+}
+/* Site du Partenaire */
+.partenaire > a {
+	display: block;
+	font-size: 0.85em;
+	text-decoration: underline;
+ 	margin-bottom: var(--space_article);
+}
+/* description du Partenaire */
+.partenaire > .text > p {
+	white-space: pre-wrap;
+}
+
+/* Section Commentaires */
+.commentaires {
+	margin-top: 5em;
+	width: auto;
+	background-color: #f1f1f1;
+ 	padding: 4em;
+	 border-radius: 2em;
+}
+.commentaires_dynamic {
+	display: grid;
+	grid-template-columns: 1fr auto auto;
+	column-gap: 2em;
+	align-items: center;
+ 	margin-bottom: 5em;
+}
+/* Nombre de commentaire */
+.commentaires_dynamic > h4 {
+	font-size: 1.2em;
+
+
+}
+/* Nouveau commentaire */
+/* boutton Nouveau commentaire */
+.new_commentaire{
+	box-shadow: -1px -2px 5px rgba(255, 255, 255, 0.8),
+		2px 2px 5px rgba(0, 0, 0, 0.2);
+ 	padding: 0.5em; 
+	border-radius: 0.7em;
+	background-color: white;
+	cursor: pointer;
+	margin-right: 0.5em;
+}
+.new_commentaire:hover {
+	box-shadow: inset -1px -2px 5px rgba(255, 255, 255, 0.5),
+		inset 2px 2px 4px rgba(0, 0, 0, 0.25);
+	color: rgba(0, 0, 0, 0.9);
+}
+.new_commentaire:active {
+	box-shadow: inset -1px -2px 5px rgba(255, 255, 255, 0.5),
+		inset 2px 2px 4px rgba(0, 0, 0, 0.25);
+	color: rgba(0, 0, 0, 0.8);
+}
+/* checkbox */
+.new_commentaire > input {
+	display: none;
+}
+/* Formulaire Nouveau commentaire popup */
+.new_commentaire_formulaire {
+	position: fixed;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	top: 6.6em;
+	right: 0;
+	width: 100%;
+	height: calc(100% - var(--header_height));
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 3;
+}
+.new_commentaire_formulaire > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	height: 25em;
+	width: 40em;
+	margin: 0;
+ 	padding: 2em 4em 2em 4em;
+	margin-bottom: 3em;
+	background-color: white;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+	z-index: 2;
+	border-radius: 0.4em;
+}
+/* Boutton close */
+.new_commentaire_formulaire > div > .close_popup {
+	position: relative;
+	align-self: flex-end;
+	right: -2.5em;
+	top: -1em;
+	background: url(/images/close.png) center/contain no-repeat;
+	width: 1.25em;
+	height: 1.25em;
+	cursor: pointer;
+}
+.new_commentaire_formulaire > div > textarea {
+    display: block;
+	padding: 0.8em;
+	font-family: Helvetica, serif;
+	color: rgba(0, 0, 0, 0.6);
+	height: 13.5em;
+	border: 0.1em solid;
+	background-color: rgba(200, 200, 200, 0.8);
+	box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
+	border: none;
+}
+/* Boutton envoi formulaire */
+.new_commentaire_formulaire > div > input {
+    align-self: flex-end;
+    display: block;
+ 	padding: 0.2em 1em 0.2em 1em;
+	cursor: pointer;
+}
+#popup_button:checked + .new_commentaire_formulaire {
+	display: flex;
+}
+/* Vote : Like / dislike */
+.commentaires_vote {
+	display: flex;
+}
+/* boutons envoyer son vote */
+.vote_like,
+.vote_dislike {
+	display: flex;
+	box-shadow: -1px -2px 5px rgba(255, 255, 255, 0.8),
+		2px 2px 5px rgba(0, 0, 0, 0.2);
+	background-color: white;
+ 	padding: 0.4em 0.3em 0.4em 0.3em;
+	cursor: pointer;
+}
+.vote_like:hover,
+.vote_dislike:hover {
+	box-shadow: inset -1px -2px 5px rgba(255, 255, 255, 0.5),
+		inset 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+.vote_like:active,
+.vote_dislike:active {
+	box-shadow: inset -1px -2px 5px rgba(255, 255, 255, 0.5),
+		inset 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+.vote_like {
+	border-top-left-radius: 0.7em;
+	border-bottom-left-radius: 0.7em;
+ 	margin-right: 0.2em;
+}
+.vote_dislike {
+	border-top-right-radius: 0.7em;
+	border-bottom-right-radius: 0.7em;
+}
+/* Nombre de like ou dislike */
+.commentaires_vote p {
+	width: 1.25em;
+	text-align: center;
+	line-height: 1.25em;
+}
+/* icone Nbr like ou dislike */
+.commentaires_vote img {
+	width: 1.25em;
+	height: 1.25em;
+}
+
+/* liste des commentaires */
+.commentaires-list {
+	display:grid;
+	width:auto;
+    margin-top: 5em;
+	background-color: rgba(200, 200, 200, 0.8);
+ 	padding: 1.5em;
+	box-shadow: inset 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
+	border-radius: 2em;
+}
+.commentaires-list li {
+	box-shadow: -1px -2px 5px rgba(255, 255, 255, 0.8),
+		2px 2px 5px rgba(0, 0, 0, 0.2);
+	border-radius: 0.5em;
+	padding: 1.3em;
+	margin-bottom: 1em;
+	margin-left: 1em;
+	list-style: none;
+	background-color: white;
+}
+/* Nom */
+.commentaires-list > li :nth-child(1) {
+	color: DimGray;
+ 	margin-bottom: 0.2em;
+}
+/* Date */
+.commentaires-list > li :nth-child(2) {
+	color: DimGray;
+	font-size: 0.85em;
+ 	margin-bottom: 1em;
+	font-family: "Roboto", sans-serif;
+}
+/* commentaire */
+.commentaires-list > li > :last-child {
+	font-family: Helvetica, serif;
+	font-size: 0.85em;
+	white-space: pre-wrap;
+}
+
+/* Aside retour page accueil*/
+.retour-accueil a {
+	display: block;
+	width: 100%;
+ 	margin-top: 3em;
+	margin-bottom: 3em;
+	text-align: right;
+	font-size: 0.85em;
+	text-decoration: underline;
+}
+
+/*  Index / Inscription / Modifier son Profil / MP */
+/* Main */
+.inscription-connexion {
+    grid-column: 1/4 ;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    width: 100%;
+ 	height: 100%;
+	margin: 0;
+	background-color: rgba(200, 200, 200, 0.8);
+}
+/* Section */
+.form_container {
+	min-width: 350px;
+    max-width: 400px;
+	margin: 0;
+	background-color: #ebebeb;
+	border-radius: 2em;
+ 	padding: 2em;
+}
+.form_container fieldset {
+	display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+ 	height: 100%;
+	margin: 0;
+    padding: 0;
+    border:none;
+}
+/* Legende formulaire*/
+.form_container fieldset > legend {
+	margin-bottom: 1em;
+}
+.message,
+.message-erreur {
+    display: block;
+    margin-bottom: 1em;
+	color: red;
+	font-size: 0.81em;
+	text-align: center;
+}
+/* Formulaires */
+.form_container form > p {
+	display: flex;
+    flex-direction: column;
+	font-size: 0.97em;
+}
+.form_container form > p > input {
+    display: block;
+	line-height: 1em;
+ 	padding: 0.3em;
+	color: rgba(0, 0, 0, 0.75);
+	font-family: Helvetica, serif;
+	border: none;
+	box-shadow: inset -1px -2px 2px rgba(255, 255, 255, 0.6),
+		inset 2px 2px 2px rgba(0, 0, 0, 0.15);
+}
+.form_container form > p > input:focus {
+	box-shadow: inset -1px -2px 2px rgba(255, 255, 255, 0.6),
+		inset 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+/* Bouton envoyer */
+.form_container form > p > .button-envoyer {
+    display: block;
+	border: none;
+	box-shadow: none;
+	color: black;
+	border-radius: 0.3em;
+	height: 2.5em;
+ 	margin-bottom: 1em;
+	margin-top: 0.5em;
+	padding: 0.4em;
+	background-color: #cecece;
+}
+.form_container form > p > .button-envoyer:hover {
+	color: white;
+	background-color: #595959;
+	box-shadow: -0.06em -0.125em 0.125em rgba(255, 255, 255, 0.05),
+		0.125em 0.125em 0.125em rgba(0, 0, 0, 0.7);
+}
+.form_container form > p > .button-envoyer:focus {
+	outline: none;
+	color: white;
+	background-color: #595959;
+	box-shadow: -0.06em -0.125em 0.125em rgba(255, 255, 255, 0.05),
+		0.125em 0.125em 0.125em rgba(0, 0, 0, 0.7);
+}
+.form_container form > p > .button-envoyer:active {
+	color: black;
+	background-color: #cecece;
+	opacity: 0.7;
+	box-shadow: inset -0.06em -0.125em 0.125em rgba(255, 255, 255, 0.1),
+		inset 0.125em 0.125em 0.19em rgba(0, 0, 0, 0.4);
+}
+.form_container form > p > label::after {
+	content: "*";
+	display: inline;
+	line-height: 0.5em;
+	color: red;
+	vertical-align: top;
+}
+.form_container form > p :nth-child(even) {
+    display: block;
+ 	margin-bottom: 0.7em;
+	margin-top: 0.2em;
+	font-size: 1em;
+}
+/* * */
+.form_container form > p > span {
+    display: block;
+	align-self: center;
+	color: red;
+	font-size: 0.7em !important;
+ 	margin: 0.5em 0 0 0 !important;
+}
+/* liens vers index ou accueil .. */
+.form_container > fieldset > a {
+    display: block;
+	font-size: 0.8em;
+	font-style: italic;
+    text-align: center;
+    margin-top:1em;
+}
+.form_container > fieldset > a:hover {
+	text-decoration: underline;
+}
+.form_container fieldset > :last-child {
+	margin-bottom: 0;
+}
